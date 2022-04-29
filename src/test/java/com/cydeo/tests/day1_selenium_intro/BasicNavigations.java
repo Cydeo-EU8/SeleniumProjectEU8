@@ -66,6 +66,11 @@ public class BasicNavigations {
 
 
 
+        // this will close the currently opened window
+        driver.close();
+
+        // this will close all of the opened windows
+        driver.quit();
 
 
     }
