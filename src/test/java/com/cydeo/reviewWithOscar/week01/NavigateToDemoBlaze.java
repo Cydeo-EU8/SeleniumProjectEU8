@@ -23,9 +23,19 @@ public class NavigateToDemoBlaze {
 
       //  driver.navigate().to("https://www.demoblaze.com/index.html");
 
-        String expectedTitle = "STORE";
+        String expectedTitle = "STORE";  // comes from documentation, SRS: system requirements specification
         // we have getTitle() method in Selenium WebDriver library
-        String actualTitle = driver.getTitle()
+        String actualTitle = driver.getTitle();
+        System.out.println("actualTitle = " + actualTitle);
+
+
+
+        // As a tester, without verification/validation what is your VALUE to the Company
+        if(expectedTitle.equalsIgnoreCase(actualTitle)){
+            System.out.println("Passed");
+        }else{
+            System.out.println("Fail");
+        }
 
     }
 
