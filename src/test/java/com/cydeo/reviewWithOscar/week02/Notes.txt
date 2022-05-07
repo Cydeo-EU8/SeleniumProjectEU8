@@ -40,6 +40,7 @@ Analysis should include:
     tagName[attribute='value']
     Using ID or ClassName
     tagName#iDValue ---- > #iDValue
+    tagName.classNameValue -----> .classNameValue
 getText() vs getAttribute('value')
 
 PIQ: Which exception you get the most?
@@ -51,6 +52,7 @@ PIQ: What is your locator strategy?
 *** try to find easiest unique and robust locator
 - id, name, css or xpath
 
+PIQ: How can you locate dynamic webElements?
 
 Tasks of Today:
 Task 1:
@@ -70,6 +72,11 @@ Basic login authentication
 - Enter password: test
 - Click “Sign In” button
 - Verify title equals: String expectedHomePageTitle = "Web Orders"
+Possible Verification Methods:
+- Title
+- URL
+- logged user name
+
 
 Task 3:
 You have to implement the following Web automated checks over our DEMO ONLINE SHOP: https://www.demoblaze.com/index.html
