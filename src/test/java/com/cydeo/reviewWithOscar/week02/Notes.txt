@@ -1,0 +1,56 @@
+Review Notes:
+    To verify expected VS actual
+    expected: documentation (SRS)
+    actual: UI testing comes from the front end (web page)
+
+WebElements: these are elements that we need to interact
+        - find the element (locators)
+                findElement(By.different locator syntax)
+        - apply an action (click, sending sth, select them, enter...etc)
+
+Selenium Library Methods:
+get() : url, void method--- opens
+findElement(): locator, -- WebElement
+getTitle(): no parameter  -- String
+getText() : no parameter --- String
+click() : No para --- void
+
+Analysis should include:
+1. do I have to provide parameter?
+2. what does the method return to me?
+
+
+8 Locators:
+6 of them already comes in the attribute
+        - id: unique, dynamic
+        - name: duplicate (usully to locate more than one element)
+        - className: duplicate and can not be used if there is space
+        - tagName
+        - LinkText / PartialLinkText : links which have 'a' anchor tag and href attribute
+2 of them (xpath/css) custom locators
+
+getText() vs getAttribute('value')
+
+Tasks of Today:
+Task 1:
+ Verify confirmation message
+        open chrome browser
+        go to https://practice.cydeo.com/
+        then click on "forgot_password" link
+        enter any email
+        verify that email is displayed in the input box
+        click on Retrieve password
+        verify that confirmation message says 'Your e-mail's been sent!'
+Task 2:
+Basic login authentication
+- Go to:  http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx
+- Verify title equals: String expectedTitle = "Web Orders Login"
+- Enter username: Tester
+- Enter password: test
+- Click “Sign In” button
+- Verify title equals: String expectedHomePageTitle = "Web Orders"
+
+Task 3:
+You have to implement the following Web automated checks over our DEMO ONLINE SHOP: https://www.demoblaze.com/index.html
+    • Customer navigation through product categories: Phones, Laptops and Monitors
+    Navigate to "Laptop" → "Sony vaio i5" and verify the price is 790 dollars
