@@ -31,6 +31,12 @@ Analysis should include:
 
 getText() vs getAttribute('value')
 
+PIQ: Which exception you get the most?
+        - No Such Element exception:
+            * Your locator is wrong
+            * webPage loading time is slower than your Selenium/JAVA code
+
+
 Tasks of Today:
 Task 1:
  Verify confirmation message

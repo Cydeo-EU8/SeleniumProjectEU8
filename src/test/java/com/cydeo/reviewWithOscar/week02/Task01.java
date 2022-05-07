@@ -1,5 +1,6 @@
 package com.cydeo.reviewWithOscar.week02;
 
+import com.cydeo.utilities.HandleWait;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,9 +19,12 @@ public class Task01 {
      /*
      2 ways of using webElelements : long way or lazy way
       */
+        HandleWait.staticWait(1);
+        // we are using Thread.sleep in a more cleaner syntax
         WebElement forgotPasswordLink = driver.findElement(By.linkText("Forgot Password"));
         forgotPasswordLink.click();
       // enter any email
+        HandleWait.staticWait(1);
       WebElement emailBox= driver.findElement(By.name("email"));
 
       String expectedEmail = "mike.smith@garbage.com";
@@ -41,6 +45,14 @@ public class Task01 {
            System.out.println("actualEmail = " + actualEmail);
            System.out.println("expectedEmail = " + expectedEmail);
        }
+
+       // click on Retrieve password
+        // use id
+        driver.findElement(By.id("form_submit")).click();
+
+       HandleWait.staticWait(1);
+       // close or quit the page
+        driver.close();
 
     }
 }
