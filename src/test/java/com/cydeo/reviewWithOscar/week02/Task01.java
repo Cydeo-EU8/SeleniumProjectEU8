@@ -48,7 +48,17 @@ public class Task01 {
 
        // click on Retrieve password
         // use id
-        driver.findElement(By.id("form_submit")).click();
+       // driver.findElement(By.id("form_submit")).click();
+
+        // use CSS
+      //  driver.findElement(By.cssSelector("#form_submit")).click();
+
+       // using tagName locator, since it is the only one : //button
+      //  driver.findElement(By.tagName("//button")).click();
+
+       // use Retrieve word to locate with XPATH : //i[contains(text(),'Retrieve')]
+        driver.findElement(By.xpath("//i[contains(text(),'Retrieve')]")).click();
+
 
        HandleWait.staticWait(1);
        // close or quit the page

@@ -28,13 +28,28 @@ Analysis should include:
         - tagName
         - LinkText / PartialLinkText : links which have 'a' anchor tag and href attribute
 2 of them (xpath/css) custom locators
+    XPATH:
+    - absolute : html ---> goes all the way down to the element tag with '/'
+    /html/body/div/div[2]/div/div/form/button : NOT RECOMMENDED
+    - relative:
+    //tagName[@attribute='value']
+    //tagName[.='text'] : WebElelement TEXT
+    //tagName[contains(@attribute,'value')] : attribute + partial text
 
+    CSS: has more cleaner syntax, might be faster
+    tagName[attribute='value']
+    Using ID or ClassName
+    tagName#iDValue ---- > #iDValue
 getText() vs getAttribute('value')
 
 PIQ: Which exception you get the most?
         - No Such Element exception:
             * Your locator is wrong
             * webPage loading time is slower than your Selenium/JAVA code
+
+PIQ: What is your locator strategy?
+*** try to find easiest unique and robust locator
+- id, name, css or xpath
 
 
 Tasks of Today:
