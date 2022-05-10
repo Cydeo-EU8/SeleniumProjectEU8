@@ -4,3 +4,5 @@ PIQ: What are the differences between Xpath and CSS locators?
 
 ** To be able to use LinkText or PartialLinkText
         - we need to have anchor tag 'a' and href attribute at the webelement
+
+PIQ: What is your locator strategy?

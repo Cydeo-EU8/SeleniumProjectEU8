@@ -1,7 +1,9 @@
 package com.cydeo.reviewWithOscar.week02.avengerHours;
 
+import com.cydeo.utilities.HandleWait;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -41,5 +43,30 @@ The Web Application under test http://todomvc.com/
         WebElement polymerLink = driver.findElement(By.linkText("Polymer"));
         polymerLink.click();
 
+
+        // The second step should be: Add one Todo item
+
+        String toDoItem = "This Todo Item is added by user";
+
+        HandleWait.staticWait(1);
+        WebElement toDoBox = driver.findElement(By.id("new-todo"));
+        toDoBox.sendKeys(toDoItem+Keys.ENTER);
+
+        // to locate the weblement for item we entered: //label[.='customText']
+
+      //  String locator = "//label[.='customText']";  // I want to use text I am sending as String variable
+        String locator = "//label[.='"+toDoItem+"']";
+        HandleWait.staticWait(1);
+        WebElement customToDOItem = driver.findElement(By.xpath(locator));
+
+        if(customToDOItem.isDisplayed()){
+            System.out.println("We added our toDO item successfully");
+        }
+
+        driver.close();  // driver.quit() to close all opened windows of that session
     }
+
+
+    // create a method that accepts String parameter which is Tab Text
+    // this method will click on that Tab
 }
