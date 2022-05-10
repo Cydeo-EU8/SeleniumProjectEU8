@@ -1,0 +1,6 @@
+PIQ: What are the differences between Xpath and CSS locators?
+- with Xpath we can use text of the WebElement, with CSS no!!
+-
+
+** To be able to use LinkText or PartialLinkText
+        - we need to have anchor tag 'a' and href attribute at the webelement
