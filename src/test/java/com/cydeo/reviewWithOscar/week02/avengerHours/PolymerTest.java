@@ -20,12 +20,13 @@ The Web Application under test http://todomvc.com/
     Then Verify that the item added.
      */
 
+     static WebDriver driver;  // when we declare a variable outside main method, it becomes global variable, so it can be usable at other methods inside class
     public static void main(String[] args) {
 
         // The first step should be to load the website
         // From Selenium Library (Version 3 - pom.xml: dependency) we use WebDriver Interface, and with a polymorphic way we create driver instance
         // driver instance initiates a 'session', until we say driver.close or driver.quit
-        WebDriver driver = WebDriverFactory.getDriver("chrome"); // opens an empty Chrome browser
+        driver = WebDriverFactory.getDriver("chrome"); // opens an empty Chrome browser
 
         // our driver object brings us many useful methods from the library
         driver.get("http://todomvc.com/");
@@ -34,11 +35,18 @@ The Web Application under test http://todomvc.com/
 
         // click within the JavaScript tab
 // (//div[contains(@class,'tab-content')])[1] with dynamic formula
-        WebElement JSElement = driver.findElement(By.xpath("//div[.='JavaScript']"));
+       // WebElement JSElement = driver.findElement(By.xpath("//div[.='JavaScript']"));
 
         // why do we locate a webelement? to do an action on it
-        JSElement.click();
-
+        // JSElement.click();
+        getTab("JavaScript");
+    /*    HandleWait.staticWait(1);
+        // if We want to click other Tabs: just call this reusable method
+        getTab("Compile-to-JS");
+        HandleWait.staticWait(1);
+        getTab("Labs");
+        HandleWait.staticWait(1);
+        getTab("JavaScript");*/
         // and select the Polymer link.
         WebElement polymerLink = driver.findElement(By.linkText("Polymer"));
         polymerLink.click();
@@ -69,4 +77,11 @@ The Web Application under test http://todomvc.com/
 
     // create a method that accepts String parameter which is Tab Text
     // this method will click on that Tab
+
+    public static void getTab(String tabText){  // main method is static method.
+        // I can NOT use an instance method inside static method, so we declare this method static
+        // Second problem was our driver object, we had to make it global and static
+        WebElement tab = driver.findElement(By.xpath("//div[.='"+tabText+"']"));
+        tab.click();
+    }
 }
