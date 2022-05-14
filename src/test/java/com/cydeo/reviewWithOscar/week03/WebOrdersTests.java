@@ -4,10 +4,14 @@ import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class WebOrdersTests {
 
@@ -27,12 +31,26 @@ public class WebOrdersTests {
 @AfterMethod
     public void closeBrowser(){
     System.out.println("closing the browser for following test cases");
-
+    driver.close();
 }
 
 @Test
     public void checkBoxTest(){
     System.out.println("Implementing step 3 and 4 of Test Case 1");
+    /*
+    I need to locate checkAll button then click
+    I need to locate all checkBoxes and verify each of them
+    one by one if they are selected (isSelected())
+locate all checkBoxes: I need to find a locator which will show(point) all the checkboxes, after this step I can use findElements() method for multiple WebElements
+     */
+    //locate checkAll button then click
+    driver.findElement(By.linkText("Check All")).click();
+    List<WebElement> checkBoxes = driver.findElements(By.xpath("//input[@type='checkbox']"));
+    for (WebElement eachCheckBox : checkBoxes) {
+        // TestNG comes with Assertion methods
+        Assert.assertTrue(eachCheckBox.isSelected());
+      //  eachCheckBox.isSelected(); // return type is boolean
+    }
 }
 
 @Test
