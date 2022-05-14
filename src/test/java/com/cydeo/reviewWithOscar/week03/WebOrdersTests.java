@@ -1,5 +1,6 @@
 package com.cydeo.reviewWithOscar.week03;
 
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -11,6 +12,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WebOrdersTests {
@@ -45,7 +47,7 @@ locate all checkBoxes: I need to find a locator which will show(point) all the c
      */
     //locate checkAll button then click
     driver.findElement(By.linkText("Check All")).click();
-    List<WebElement> checkBoxes = driver.findElements(By.xpath("//input[@type='checkbox']"));
+    ArrayList<WebElement> checkBoxes = (ArrayList<WebElement>) driver.findElements(By.xpath("//input[@type='checkbox']"));
     for (WebElement eachCheckBox : checkBoxes) {
         // TestNG comes with Assertion methods
         Assert.assertTrue(eachCheckBox.isSelected(),"CheckBox IS NOT checked"); // expectation is true
@@ -54,7 +56,7 @@ locate all checkBoxes: I need to find a locator which will show(point) all the c
     // Click on Uncheck All button
     driver.findElement(By.linkText("Uncheck All")).click();
     // we need to reLocate the elements again, otherwise we get Stale Element Refernce exception
-    checkBoxes = driver.findElements(By.xpath("//input[@type='checkbox']"));
+    checkBoxes = (ArrayList<WebElement>) driver.findElements(By.xpath("//input[@type='checkbox']"));
     // verify all checkboxes not selected
     for (WebElement eachCheckBox : checkBoxes) {
        // eachCheckBox.isSelected() // my boolean expection this time is false
@@ -66,6 +68,30 @@ locate all checkBoxes: I need to find a locator which will show(point) all the c
 @Test
     public void deletePersonTest(){
     System.out.println("Implementing step 3 and 4 of Test Case 2");
+    String name = "Mark Smith";
+    /*
+    Locate the checkBox using the person's Name: Bob Feather
+    find with name(child)--> go to parent (whole row) --> down to td of checkbox */
+    //td[.='Bob Feather']/../td[1]/input
+    //td[.='Bob Feather']/preceding-sibling::*/input
+String locatorOfCheckBoxWithName = "//td[.='"+name+"']/../td[1]/input";
+WebElement checkBox = driver.findElement(By.xpath(locatorOfCheckBoxWithName));
+checkBox.click();  // select the checkbox with click()
+
+    // locate delete button and click
+    driver.findElement(By.id("ctl00_MainContent_btnDelete")).click();
+
+    // put some waiting time
+    BrowserUtils.sleep(2);
+// After we delete, we can get all the names of the customers as a List, then verify that deleted name is NOT in the list
+    // need to get all the names from the table
+    // common locator : //tr//td[2]
+    List<WebElement> namesElements = driver.findElements(By.xpath("//tr//td[2]"));
+    for (WebElement namesElement : namesElements) {
+       // verify each elements text that it does not contain deleted person
+       Assert.assertFalse(namesElement.getText().contains(name));
+    }
+
 }
 
 
