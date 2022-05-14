@@ -48,9 +48,19 @@ locate all checkBoxes: I need to find a locator which will show(point) all the c
     List<WebElement> checkBoxes = driver.findElements(By.xpath("//input[@type='checkbox']"));
     for (WebElement eachCheckBox : checkBoxes) {
         // TestNG comes with Assertion methods
-        Assert.assertTrue(eachCheckBox.isSelected());
+        Assert.assertTrue(eachCheckBox.isSelected(),"CheckBox IS NOT checked"); // expectation is true
       //  eachCheckBox.isSelected(); // return type is boolean
     }
+    // Click on Uncheck All button
+    driver.findElement(By.linkText("Uncheck All")).click();
+    // we need to reLocate the elements again, otherwise we get Stale Element Refernce exception
+    checkBoxes = driver.findElements(By.xpath("//input[@type='checkbox']"));
+    // verify all checkboxes not selected
+    for (WebElement eachCheckBox : checkBoxes) {
+       // eachCheckBox.isSelected() // my boolean expection this time is false
+        Assert.assertFalse(eachCheckBox.isSelected(),"The CheckBox is still selected, we could NOT unSelect all");
+    }
+
 }
 
 @Test
