@@ -5,9 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class TestCase01 {
     /*
@@ -32,19 +30,20 @@ public class TestCase01 {
      */
 
     WebDriver driver; // Declare your variable global
-    @BeforeMethod
+    @BeforeClass
     public void setUp(){
         driver = WebDriverFactory.getDriver("chrome"); // initialize your variable
         driver.manage().window().maximize();
+        driver.get("http://automationexercise.com");
     }
-    @AfterMethod
+    @AfterClass
     public void tearDown(){
         driver.close();
     }
 
     @Test
-    public void Test1() {
-        driver.get("http://automationexercise.com");
+    public void Test1_1() {
+
 
         // Verify that home page is visible successfully : What they mean? --> Verify that you have Hope Page URL and Title, another option verify that test cases button is displayed
         String expectedTitle = "Automation Exercise";
@@ -55,12 +54,29 @@ public class TestCase01 {
         // Click on 'Signup / Login' button
         driver.findElement(By.partialLinkText("Signup")).click();
 
+    }
+
+    @Test
+    public void Test1_2(){
         String name = "Scolfield";
         String email = "scolfield@test.com";
-
         // Verify 'New User Signup!' is visible
         WebElement newUser = driver.findElement(By.xpath("//h2[.='New User Signup!']"));
         Assert.assertTrue(newUser.isDisplayed());
+        // Enter name and email address
+        WebElement nameBox = driver.findElement(By.xpath("//input[@name='name']"));
+        WebElement emailBox = driver.findElement(By.xpath("//input[@data-qa='signup-email']"));
+        nameBox.sendKeys(name);
+        emailBox.sendKeys(email);
+        // click sign up button
+        driver.findElement(By.xpath("//button[@data-qa='signup-button']")).click();
+
+    }
+    @Test
+    public void Test1_3(){
+
+        //  Verify that 'ENTER ACCOUNT INFORMATION' is visible
+        Assert.assertTrue(driver.findElement(By.xpath("//h2/b[.='Enter Account Information']")).isDisplayed(),"ENTER Account Details Fields Are NOT Displayed");
     }
 
 }
