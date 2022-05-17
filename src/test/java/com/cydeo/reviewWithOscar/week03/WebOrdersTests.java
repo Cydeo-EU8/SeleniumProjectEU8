@@ -62,7 +62,10 @@ locate all checkBoxes: I need to find a locator which will show(point) all the c
        // eachCheckBox.isSelected() // my boolean expection this time is false
         Assert.assertFalse(eachCheckBox.isSelected(),"The CheckBox is still selected, we could NOT unSelect all");
     }
+/*
+List is an interface, ArrayList is a concrete class that implements List Interface
 
+ */
 }
 
 @Test
@@ -91,6 +94,10 @@ checkBox.click();  // select the checkbox with click()
        // verify each elements text that it does not contain deleted person
        Assert.assertFalse(namesElement.getText().contains(name));
     }
+
+    /*
+    You can do the same verification by checking the size of the List
+     */
 
 }
 
