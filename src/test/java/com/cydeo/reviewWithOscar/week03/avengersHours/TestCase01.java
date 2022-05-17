@@ -1,11 +1,15 @@
 package com.cydeo.reviewWithOscar.week03.avengersHours;
 
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.*;
+
+import java.util.List;
 
 public class TestCase01 {
     /*
@@ -77,6 +81,25 @@ public class TestCase01 {
 
         //  Verify that 'ENTER ACCOUNT INFORMATION' is visible
         Assert.assertTrue(driver.findElement(By.xpath("//h2/b[.='Enter Account Information']")).isDisplayed(),"ENTER Account Details Fields Are NOT Displayed");
+    }
+
+    @Test
+    public void Test1_4(){
+        // Select United States and verify that it is selected
+        // locate your DropDown Element
+        WebElement country = driver.findElement(By.id("country"));
+        // Create your Select Class object with using this locator as parameter for Constructor
+        Select countryDropDown = new Select(country);
+        countryDropDown.selectByVisibleText("United States");
+
+        List<WebElement> allOptions = countryDropDown.getOptions();
+        for (WebElement eachOption : allOptions) {
+            System.out.println(eachOption.getText());
+        }
+        BrowserUtils.sleep(3);
+        String expectedText = "United States";
+        String actualText = countryDropDown.getFirstSelectedOption().getText(); // brings you the selected option
+        Assert.assertEquals(actualText,expectedText,"Country WAS NOT selected correctly");
     }
 
 }
