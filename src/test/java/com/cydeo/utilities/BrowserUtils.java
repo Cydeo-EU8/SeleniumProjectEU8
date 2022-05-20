@@ -1,7 +1,7 @@
 package com.cydeo.utilities;
 
 /*
-In this class only general utility methods that are not related to some specific page.
+In this class only general utility methods that are NOT related to some specific page.
  */
 
 import org.openqa.selenium.WebDriver;
