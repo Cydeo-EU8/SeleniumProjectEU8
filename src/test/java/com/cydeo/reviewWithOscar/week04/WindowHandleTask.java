@@ -32,6 +32,7 @@ Scenario 1)
 // click on first calendar
         driver.findElement(By.xpath("(//img[@src='cal.gif'])[1]")).click();
 
+
         // get all the opened windows handles
         Set<String> windowHandles = driver.getWindowHandles();
 
@@ -46,6 +47,15 @@ Scenario 1)
                 driver.switchTo().window(eachWindowHandle);
             }
         }
+
+//        String mainWindowHandle = driver.getWindowHandle();
+//        ReviewUtils.windowHandle(driver,"Pick a Date");
+
+        String title = driver.getTitle();
+        String currentUrl = driver.getCurrentUrl();
+        System.out.println("currentUrl = " + currentUrl);
+        System.out.println("title = " + title);
+
         // click on the element at the second window
         driver.findElement(By.linkText("24")).click(); // the window closes itself, however I am still inside that closed window programatically
         ReviewUtils.staticWait(3);
