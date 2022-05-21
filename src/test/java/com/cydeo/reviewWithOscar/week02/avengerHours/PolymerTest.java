@@ -1,6 +1,6 @@
 package com.cydeo.reviewWithOscar.week02.avengerHours;
 
-import com.cydeo.utilities.HandleWait;
+import com.cydeo.utilities.ReviewUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -56,7 +56,7 @@ The Web Application under test http://todomvc.com/
 
         String toDoItem = "This Todo Item is added by user";
 
-        HandleWait.staticWait(1);
+        ReviewUtils.staticWait(1);
         WebElement toDoBox = driver.findElement(By.id("new-todo"));
         toDoBox.sendKeys(toDoItem+Keys.ENTER);
 
@@ -64,7 +64,7 @@ The Web Application under test http://todomvc.com/
 
       //  String locator = "//label[.='customText']";  // I want to use text I am sending as String variable
         String locator = "//label[.='"+toDoItem+"']";
-        HandleWait.staticWait(1);
+        ReviewUtils.staticWait(1);
         WebElement customToDOItem = driver.findElement(By.xpath(locator));
 
         if(customToDOItem.isDisplayed()){
