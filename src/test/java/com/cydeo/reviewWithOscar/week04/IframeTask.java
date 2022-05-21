@@ -28,7 +28,9 @@ public class IframeTask {
         driver.get("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_ev_ondblclick2");
 
         // we need to change frame
-        driver.switchTo().frame("iframeResult");
+          driver.switchTo().frame("iframeResult");
+     //   ReviewUtils.staticWait(2);
+   //     driver.switchTo().frame(0);
 
         ReviewUtils.staticWait(2);
         WebElement demoElement =    driver.findElement(By.id("demo"));
