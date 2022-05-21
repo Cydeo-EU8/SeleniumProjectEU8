@@ -2,6 +2,7 @@ package com.cydeo.reviewWithOscar.week04;
 
 import com.cydeo.utilities.ReviewUtils;
 import com.cydeo.utilities.WebDriverFactory;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
@@ -28,5 +29,9 @@ public class AlertTask {
 
         // After this step I should see the ALERT
 
+        Alert alert = driver.switchTo().alert();  // How did you use Polymorphism in your framework?
+        alert.accept(); // dismiss will also work
+
+        driver.close();
     }
 }
