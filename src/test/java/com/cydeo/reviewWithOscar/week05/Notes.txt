@@ -1,0 +1,30 @@
+You have to implement the following Web automated checks over our DEMO ONLINE
+    SHOP: https://www.demoblaze.com/index.html
+    • Customer navigation through product categories: Phones, Laptops and Monitors
+    • Navigate to "Laptop" → "Sony vaio i5" and click on "Add to cart". Accept pop up confirmation.  --- Create a custom method for adding products
+    • Navigate to "Laptop" → "Dell i7 8gb" and click on "Add to cart". Accept pop up confirmation.
+    • Click on "Place order".
+    • Fill in all web form fields. ----USE JavaFaker---create a fillForm() custom method
+    • Click on "Purchase"
+    • Capture and log purchase Id and Amount.
+    • Assert purchase amount equals expected.
+    • Click on "Ok"
+
+
+    Task 2: Homework
+    Smartbear software order placing
+    1. Open browser
+    2. Go to website:
+    http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx
+    3. Enter username: “Tester”
+    4. Enter password: “test”
+    5. Click on Login button
+    6. Click on Order
+    7. Select familyAlbum from product, set quantity to 2
+    8. Click to “Calculate” button
+    9. Fill address Info with JavaFaker
+    • Generate: name, street, city, state, zip code
+    10. Click on “visa” radio button
+    11. Generate card number using JavaFaker
+    12. Click on “Process”
+    13. Verify success message “New order has been successfully added.”
