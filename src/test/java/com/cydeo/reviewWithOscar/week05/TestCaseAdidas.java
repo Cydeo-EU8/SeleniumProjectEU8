@@ -19,7 +19,7 @@ public class TestCaseAdidas extends TestBase {
       expectedPrice += ReviewUtils.addProduct(driver,ConfigurationReader.getProperty("category2"),"Samsung galaxy s6");
         // go to Cart
        ReviewUtils.getLink(driver,"Cart");
-
+        ReviewUtils.staticWait(1); // PUT one second waiting time
       // First get Cart price then click on place order
      double cartPrice = Double.parseDouble(driver.findElement(By.id("totalp")).getText());
        System.out.println("cartPrice = " + cartPrice);
