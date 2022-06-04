@@ -10,6 +10,8 @@ You have to implement the following Web automated checks over our DEMO ONLINE
     • Assert purchase amount equals expected.
     • Click on "Ok"
 
+Extra Practice : create a productRemover method to utility, and this method should return removed products price, so that we can deduct from the expected price
+
 
     Task 2: Homework
     Smartbear software order placing
