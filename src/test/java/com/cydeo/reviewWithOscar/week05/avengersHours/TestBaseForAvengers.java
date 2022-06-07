@@ -18,7 +18,7 @@ public abstract class TestBaseForAvengers {
 
     @AfterMethod
     public void tearDown(){
-    //    Driver.closeDriver();
+        Driver.closeDriver();
     }
 
 
