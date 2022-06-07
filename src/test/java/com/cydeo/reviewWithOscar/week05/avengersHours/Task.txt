@@ -1,0 +1,12 @@
+1. Launch browser   +
+2. Navigate to url 'http://automationexercise.com' +
+3. Verify that home page is visible successfully
+4. Click on 'Products' button
+5. Verify user is navigated to ALL PRODUCTS page successfully
+6. Enter "blue" in search input and click search button
+7. Verify 'SEARCHED PRODUCTS' have only items that have "blue" keyword in it.
+
+PIQ: What are the differences between implicitly and explictly wait?
+* Exception they throw are different
+- implicitly wait: throws NoSuchElement exception
+- explictly wait throws Timeout exception
