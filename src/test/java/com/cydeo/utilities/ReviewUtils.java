@@ -79,6 +79,19 @@ double price = Double.parseDouble(priceText.substring(1,4));
         staticWait(2);
     }
 
+    public static double removeProduct(String product){
+        // locator : //td[.='Samsung galaxy s6']/../td[4]/a
+        String locatorDelete = "//td[.='"+product+"']/../td[4]/a"; // Dynamic locator that works with product names
+        String locatorPrice = "//td[.='"+product+"']/../td[3]";
+
+        // get the price of deleted item
+        String priceText = Driver.getDriver().findElement(By.xpath(locatorPrice)).getText();
+        double deletedItemPrice = Double.parseDouble(priceText);
+
+        Driver.getDriver().findElement(By.xpath(locatorDelete)).click();
+        staticWait(3);
+     return  deletedItemPrice;
+    }
 
     public static void windowHandle(WebDriver driver, String pickDateWindowTitle) {
         Set<String> windowHandles = driver.getWindowHandles();

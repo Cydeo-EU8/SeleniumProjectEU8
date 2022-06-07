@@ -19,12 +19,19 @@ public class TestCaseWithSingleton {
         Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 // ConfigurationReader.getProperty("category1") ----> returns Laptops
+        // add Sony vaio i5
         expectedPrice += ReviewUtils.addProduct(ConfigurationReader.getProperty("category1"),"Sony vaio i5");
         ReviewUtils.getLink("Home");
+
+        // add Samsung galaxy s6
         expectedPrice += ReviewUtils.addProduct(ConfigurationReader.getProperty("category2"),"Samsung galaxy s6");
         // go to Cart
         ReviewUtils.getLink("Cart");
         ReviewUtils.staticWait(3); // PUT one second waiting time
+
+        // delete Samsung galaxy s6
+        expectedPrice -= ReviewUtils.removeProduct("Samsung galaxy s6");
+
         // First get Cart price then click on place order
         double cartPrice = Double.parseDouble(Driver.getDriver().findElement(By.id("totalp")).getText());
         System.out.println("cartPrice = " + cartPrice);
