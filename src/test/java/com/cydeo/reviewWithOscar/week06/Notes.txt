@@ -39,3 +39,12 @@ PIQ: What is the difference between Implicit wait and explicit wait?
 
 -> Implicit wait throws NoSuchElementException if element does not appear in html/dom during the timeout
 -> Explicit wait throws TimeOutException if condition is not met within the specified seconds
+
+
+Interview Task from US
+
+Go to https://www.webstaurantstore.com/
+Search for "stainless work table"
+check the search result and unsure that every item has "Table" in it's title
+add the last found item
+empty cart
