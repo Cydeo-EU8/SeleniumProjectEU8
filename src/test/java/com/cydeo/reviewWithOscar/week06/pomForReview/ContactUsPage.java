@@ -23,4 +23,7 @@ public class ContactUsPage extends BasePage{
     @FindBy(name = "submit")
     public WebElement submit;
 
+    @FindBy(xpath = "//div[@class='status alert alert-success']")
+    public WebElement success;
+
 }
