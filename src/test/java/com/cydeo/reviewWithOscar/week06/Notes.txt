@@ -1,0 +1,20 @@
+Today's Topics:
+    * POM: Page Object Model
+            - Java Classes for each page of the application
+            - For : https://www.automationexercise.com/
+            1. Create BasePage POM which is abstarct- other pages will inherit constructor of this class
+    * Synchronization in Selenium
+    * JavascriptExecuter and Actions Interfaces in Selenium
+    * File Uploading
+    * Scrolling with different ways
+
+Task 6 :
+1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Click on 'Contact Us' button
+4. Enter name, email, subject and message
+5. Upload file
+6. Click 'Submit' button
+7. Click OK button
+8. Verify success message 'Success! Your details have been submitted successfully.' is visible
+9. Click 'Home' button and verify that landed to home page successfully
