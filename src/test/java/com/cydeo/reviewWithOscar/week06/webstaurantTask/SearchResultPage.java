@@ -20,4 +20,15 @@ public class SearchResultPage extends HomePage{
     @FindBy(xpath = "(//span[.='Cart'])[2]")
     public WebElement cart;
 
+    @FindBy(id ="cartItemCountSpan")
+    public WebElement countOfItems;
+
+    @FindBy(xpath = "//button[.='Empty Cart']")
+    public WebElement emptyCart;
+
+    @FindBy(xpath = "(//button[.='Empty Cart'])[2]")
+    public WebElement emptyCartAgain;
+
+    @FindBy(xpath = "//p[@class='header-1']")
+    public WebElement emptyMessage;
 }
