@@ -13,4 +13,10 @@ public class WaitTasksPage {
     @FindBy(id = "alert")
     public WebElement alertActivate;
 
+    @FindBy(id = "enable-button")
+    public WebElement enable;
+
+    @FindBy(id = "disable")
+    public WebElement disable;
+
 }
