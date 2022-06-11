@@ -7,11 +7,17 @@ Today's Topics:
     * JavascriptExecuter and Actions Interfaces in Selenium
     * File Uploading
     * Scrolling with different ways
+            - Actions inteface : SendKeys Keys.PAGE UP or DOWN
+                               : moveToElement method to scroll into that view
+            - JS Executer : we send String arguments
+                        - scroll using JavaScriptExecutor: js.executeScript("window.scrollBy(0, 750)");
+                        - js.executeScript("arguments[0].scrollIntoView(true)", webElement);
 
 Task 6 :
 1. Launch browser
 2. Navigate to url 'http://automationexercise.com'
 3. Click on 'Contact Us' button
+        -- Extra step move the view to Submit Button
 4. Enter name, email, subject and message
 5. Upload file
 6. Click 'Submit' button
