@@ -1,9 +1,11 @@
 package com.cydeo.reviewWithOscar.week06;
 
 import com.cydeo.utilities.Driver;
+import com.cydeo.utilities.ReviewUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -46,7 +48,17 @@ public class DropDownTask {
         String actualValue = dropDown.getFirstSelectedOption().getText();
         Assert.assertEquals(actualValue,expectedValue,"Default Option Test Failed");
 
+        // select FamilyAlbum
+        dropDown.selectByVisibleText("FamilyAlbum");
+        ReviewUtils.staticWait(2);
+        Assert.assertEquals(dropDown.getFirstSelectedOption().getText(),"FamilyAlbum");
 
+        WebElement quantityInput = Driver.getDriver().findElement(By.id("ctl00_MainContent_fmwOrder_txtQuantity"));
+      //  quantityInput.clear();
+      //  quantityInput.sendKeys("2");
+
+        Actions actions = new Actions(Driver.getDriver());
+        actions.doubleClick(quantityInput).sendKeys("2").perform();
 
     }
 
