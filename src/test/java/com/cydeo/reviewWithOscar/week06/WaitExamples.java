@@ -3,6 +3,9 @@ package com.cydeo.reviewWithOscar.week06;
 import com.cydeo.reviewWithOscar.week06.pomForReview.WaitTasksPage;
 import com.cydeo.utilities.Driver;
 import com.cydeo.utilities.ReviewUtils;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -17,11 +20,12 @@ public class WaitExamples {
      */
 
     WaitTasksPage page;  // Declare
-
+    WebDriverWait wait;
     @BeforeMethod
     public void setUp(){
         Driver.getDriver().get("https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver");
         page = new WaitTasksPage(); // initialize
+        wait = new WebDriverWait(Driver.getDriver(),10);
     }
     @AfterMethod()
     public void tearDown(){
@@ -33,6 +37,10 @@ public class WaitExamples {
     @Test
     public void Task01(){
         page.alertActivate.click();
+// selenium.NoAlertPresentException: no such alert
+        wait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = Driver.getDriver().switchTo().alert();
+        alert.accept();
     }
 
     @Test

@@ -26,3 +26,16 @@ Task 6 :
 7. Click OK button
 8. Verify success message 'Success! Your details have been submitted successfully.' is visible
 9. Click 'Home' button and verify that landed to home page successfully
+
+PIQ: What is the difference between Implicit wait and explicit wait?
+-> Implicit wait time is set once globally and applies to all steps.
+-> Explicit wait is applied to a specific element on the page
+
+-> Implicit wait works with findElement method and waits until element is present in html/dom (document object model)
+-> Explicit wait can be applied with different conditions that are available in ExpectedConditions class
+
+-> Implicit wait stops waiting as soon as element is found in the html/dom
+-> Explicit wait stops waiting when certain condition is met. like visibility of elem. or enable of elem etc
+
+-> Implicit wait throws NoSuchElementException if element does not appear in html/dom during the timeout
+-> Explicit wait throws TimeOutException if condition is not met within the specified seconds
