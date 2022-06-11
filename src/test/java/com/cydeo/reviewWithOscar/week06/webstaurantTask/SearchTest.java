@@ -3,6 +3,7 @@ package com.cydeo.reviewWithOscar.week06.webstaurantTask;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -22,7 +23,13 @@ public class SearchTest {
             Assert.assertTrue(eachElement.getText().toLowerCase().contains("table"));
         }
 
+        List<WebElement> inStockItems = page.inStockItems;
 
+        inStockItems.get(inStockItems.size()-1).click();
+
+// .ElementClickInterceptedException: element click intercepted:  WE need to handle the HTML Alert
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),15);
+        page.cart.click();
 
     }
 }

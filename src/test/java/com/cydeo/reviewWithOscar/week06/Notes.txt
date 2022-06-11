@@ -48,3 +48,8 @@ Search for "stainless work table"
 check the search result and unsure that every item has "Table" in it's title
 add the last found item
 empty cart
+
+Helpful Note: If you have an element that disappears and you need to locate it:
+1. Click on Sources at the inspect page
+2. hover over your webelement
+3. click F-8 to stop debugger of browser, pauses the execution of the script
