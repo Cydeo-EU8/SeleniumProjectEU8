@@ -4,6 +4,8 @@ Today's Topics:
             - For : https://www.automationexercise.com/
             1. Create BasePage POM which is abstarct- other pages will inherit constructor of this class
     * Synchronization in Selenium
+            Go to : https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver
+
     * JavascriptExecuter and Actions Interfaces in Selenium
     * File Uploading
     * Scrolling with different ways
