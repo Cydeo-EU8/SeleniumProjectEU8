@@ -4,8 +4,11 @@ import com.github.javafaker.Faker;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class ReviewUtils {
@@ -102,6 +105,15 @@ double price = Double.parseDouble(priceText.substring(1,4));
                 break;
             }
         }
+    }
+
+    // get List of Webelement as parameter and return List of String
+    public static List<String> getElementsTexts(List<WebElement> inputList){
+        List<String> list = new ArrayList<>();
+        for (WebElement webElement : inputList) {
+            list.add(webElement.getText());
+        }
+        return list;
     }
 
 }
