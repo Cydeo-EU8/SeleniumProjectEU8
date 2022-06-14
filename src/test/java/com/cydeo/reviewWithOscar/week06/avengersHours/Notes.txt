@@ -1,0 +1,42 @@
+- findElement() for locating one single element
+- findElements() for locating multiple element
+By class : 8 Locators
+id, class, name, tagName, linktext or partial linktext
+Custom Locators:
+CSS : can NOT locate with text, can NOT go from child to parent
+Xpath: absolute and relative (//)
+
+<button id="button_three">Button 3</button> : starting part is static
+xpath : //button[starts-with(@id,'button_')]
+css : button[id^='button_']
+
+contains keyword:
+xpath: //button[contains(@id,'ring')]
+css : button[id*='ring']
+
+Dropdowns:
+2 categories
+1. Select Tagname
+2. No Select Dropdowns
+
+Actions class in Selenium
+Actions actions = new Actions(Driver.getDriver())
+
+Pop-ups:
+HTML : locate and handle
+JavaScript pop-up : Alert Interface, and create object
+Browser Notifications (Chrome Notifications):
+     ChromeOptions options = new ChromeOptions(); --- We can pass some optional issues to our driver object
+           options.setAcceptInsecureCerts(true);
+           WebDriverManager.chromedriver().setup();
+          driver = new ChromeDriver(options); --- pass options as parameter
+
+Handle Multiple windows
+Handle Iframes
+Big Chance for PIQ
+Sync Issues with Selenium
+Implicit and Explicit Waits
+
+Big Important topic
+POM: Page Object Model
+
