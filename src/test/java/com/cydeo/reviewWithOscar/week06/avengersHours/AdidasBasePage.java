@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public abstract class AdidasBasePage {
 
     public AdidasBasePage(){
@@ -27,5 +29,7 @@ public abstract class AdidasBasePage {
         return Driver.getDriver().findElement(By.linkText(str));
     }
 
+    @FindBy(xpath = "//a[@class='hrefch']")
+    public List<WebElement> products;
 
 }
